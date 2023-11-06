@@ -18,7 +18,11 @@ import react.dom.html.ReactHTML.main
 import react.useEffect
 import react.useState
 
+@JsName("require")
+external fun requireModule(module: String): dynamic
+
 val App = FC<AppProps> { props ->
+    requireModule("./App.scss")
     var selectedProject by useState<SelectedProject>(SelectedProject.CollatedTask.INBOX)
     var projects by useState<List<Project>>(emptyList())
 
